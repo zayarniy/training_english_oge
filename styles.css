@@ -1,0 +1,266 @@
+html,
+body {
+    height: 100%;
+}
+
+.btn_correct {
+    position: absolute;
+    bottom: 10px;
+}
+
+#app {
+    /*max-width: 800px;*/
+    #height: 800px;
+    /*max-height: 800px;*/
+    min-width: 600px;
+
+}
+
+.my_logo {
+    float: none;
+}
+
+.my_header {
+    #display: inline-block;
+    text-align: justify;
+}
+
+.main {
+    font-size: 25px;
+    #height: 800px;
+    #min-height: 500px;
+    text-align: justify;
+    #border: 1px solid #000;
+    #min-width: 500px;
+    #width: 776px;
+}
+
+div{
+   #border: 1px red dotted;
+}
+
+i{
+    border: 1px green dotted;
+ }
+ 
+ 
+
+#progress-bar {
+    width: 100%;
+    #position: absolute;
+    left: 60px;
+    #display: flex;
+    #flex-basis: auto;
+   #flex-grow: 1;
+    #flex-shrink: 0;
+    border: 1px solid #0F0;
+    height: 45px;
+    #background-color:white ;
+    #display: flex;
+    #align-items: center;
+}
+
+#progress-bar-fill {
+    #border: 1px solid #FF0000;
+    height: 20px;
+    background-color: #ffffff;
+    #transition: width 0.5s linear;
+    width: 0%;
+    flex-grow: 1;
+    #position: relative;
+    #top: 15px;
+    margin-top: 12px;
+
+}
+
+.icon-size {
+    font-size:25px;
+    #width: 20px;
+    #text-align: center;
+    height: 35px;
+    #margin-top: 10px;
+    
+}
+
+.invisible-icon
+{
+    visibility:hidden;
+    display: none;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1;
+    bottom: 125%; /* Позиция всплывающего сообщения */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-icon:hover .tooltip {
+    #display: block;
+    opacity: 1;
+}
+
+.col-my {
+    #border: 1px solid #000;
+    #height: 100px;
+    width: 45px;
+    min-width: 45px;
+    -o-box-align: center;
+    align-items: center;
+    -o-box-pack: center;
+    justify-content: center;
+}
+
+.red {
+    color: red;
+}
+
+.gray {
+    color: #666;
+}
+
+.blue {
+    color: blue;
+}
+
+.my-btn {
+    #border: 1px solid #000;
+    #height: 30px;
+    white-space: nowrap;
+    width: 100px;
+    margin-right: 5px;
+    #margin-top: 5px;
+    #padding-right: 5px;
+    #text-overflow:ellipsis;
+}
+
+
+
+.right {
+    #border: 1px solid #000;
+    align-content: flex-end;
+    align-items: flex-end;
+    #padding: -10px;
+    #margin: -1px;
+    #height: 38px;
+    flex-basis: auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.left {
+    align-content: flex-start;
+}
+
+.format-time {
+    #border: 1px solid #000;
+    #position: absolute;
+    padding-right: 5px;
+    margin: 0px;    
+    #display: inline-block;
+    font-size: 30px;
+    #justify-content: flex-end;
+    #align-content: flex-end;
+    #text-align: right;
+
+}
+
+.col_my {
+    display: flex;
+    height: 45px;
+}
+
+
+.timer_caption {
+    font-size: 50px;
+}
+
+.timer {
+    font-size: 40px;
+    display: block;
+    height: 100%;
+    #width: 400px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+.my_image {
+    #display: block;
+    #width: 400px;
+    width: 40vh;
+}
+
+span {
+    display: inline;
+
+}
+
+audio {
+    display: inline;
+}
+
+#audioContainer {
+    width: 800px;
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: 530px;
+    ;
+}
+
+.recorder {
+    position: relative; /* Позволяет использовать абсолютное позиционирование внутри этого контейнера */
+    #height: 100px; /* Задаем высоту контейнера для визуализации */
+    #border: 3px solid #b83333; /* Граница для визуального отделения контейнера */
+    
+    margin: 5px;
+    #margin-bottom: 10px;
+    padding: 2px;
+    min-width: 300px;
+    height: 50px;
+    background-color: cornflowerblue;
+    border: 1px solid black;
+    color: white;
+    border-radius: 3px;
+
+}
+
+.left-recorder {
+    position: absolute;
+    left: 5px; /* Левый элемент с помощью absolute */
+    top:13px;    
+    #background-color: #f00; /* Красный для визуализации */
+    width: 55px; /* Ширина левого элемента */
+}
+
+.right-recorder {
+    position: absolute;    
+    right: 0px; /* Правый элемент с помощью absolute */
+    #top:5px;
+    #background-color: #00f; /* Синий для визуализации */
+    width: 200px; /* Ширина правого элемента */
+    display: flex;
+    justify-content: right;
+    
+    #padding: 10px;
+}
+
+.center-recorder {
+    position: absolute;
+    #border: 2px gold solid;
+    left: 60px; /* Сдвигаем на ширину левого элемента */
+    right: 200px; /* Сдвигаем на ширину правого элемента */
+    #background-color: #0f0; /* Зеленый для визуализации */
+}
