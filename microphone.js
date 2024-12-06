@@ -287,9 +287,9 @@ let recorder = new Vue({
                         this.timerStop(this.timer);
                         if (this.micStatus == MicStatus.PREPARE ||
                             this.micStatus == MicStatus.AUTORECORDING) {
-                            this.micStatus = MicStatus.NOTREADY;
-                            if (param.next)
-                                this.nextStep(false);//false остаемся на том же экране
+                            this.micStatus = MicStatus.INVISIBLE;
+                            //if (param.next)
+                                this.nextStep(true);//false остаемся на том же экране
                         }
                     }
                 }, 1000);

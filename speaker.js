@@ -56,6 +56,53 @@ function speakWithDelay(text, delay = 250, callback = log) {
 
 }
 
+function speakAllWithDelay(texts, delay = 250, callback = log) {
+  if (synth.speaking) {
+    console.error("speechSynthesis.speaking");
+    return;
+  }
+  if (texts && texts.length > 0) {
+    setTimeout(() => {
+      i = 0;
+      const utterThis = new SpeechSynthesisUtterance(texts[i]);
+      utterThis.voice = voices[0]
+      utterThis.onend = function (event) {
+        console.log('speak end');
+        i++;
+        if (i < texts.length) {
+          utterThis.text=texts[i];
+          synth.speak(utterThis);
+          //alert(voices)
+
+        }
+        else
+          callback();
+      };
+
+      utterThis.onerror = function (event) {
+        console.error("SpeechSynthesisUtterance.onerror:" + event.error);
+        return;
+      };
+      //speakOverUtterance(utterThis);
+      utterThis.pitch = 1;
+      utterThis.rate = 1.02;
+      utterThis.lang = "en-GB";
+      synth.speak(utterThis);
+    }, delay);
+
+  
+  }
+}
+
+function speakOverUtterance(utterSynth)
+{
+  //if (utterSynth==null) return;
+  utterSynth.pitch = 1;
+  utterSynth.rate = 1.02;
+  utterSynth.lang = "en-GB";
+  synth.speak(utterThis);
+}
+
 function promiseSpeak(text, delay = 250, callback = log) {
   return new Promise(resolve => {
     if (synth.speaking) {
@@ -88,7 +135,7 @@ function promiseSpeak(text, delay = 250, callback = log) {
 
 
 function playSoundAndCallFunction(soundFile, callback, delay = 250) {
-
+  synth.cancel();
   setTimeout(() => {
     const audio = new Audio(soundFile);
 
@@ -116,7 +163,9 @@ function playSoundSayTextAndPlaySoundAgain(soundFile, text, callback1) {
   audio.play();
 }
 
+
 console.log("speaker loaded");
+
 //speak('speaker loaded');
 
 ///////////////////////////////////////////////////////////////////

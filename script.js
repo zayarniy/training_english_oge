@@ -1,5 +1,8 @@
 'use strict'
 
+let Sounds = {
+    sound1: 'sounds/sound01.mp3',
+}
 
 let app = new Vue({
     el: '#app',
@@ -7,7 +10,7 @@ let app = new Vue({
         step: 0,
         content: {
             head1: "Внимание",
-            main_text: `На следующем этапе тренажёр попытается получить доступ к микрофону.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.`,
+            mainText: `На следующем этапе тренажёр попытается получить доступ к микрофону.<br>Если вы планируете использовать функцию записи, то разрешите сайту использовать микрофон.`,
             head2: '',
             head3: '',
             image1: '1px.png',
@@ -40,12 +43,19 @@ let app = new Vue({
             count: 10
         }
     },
+    computed:
+    {
+        countDownContent() {
+            return '0' + this.countDown.count;
+        }
+
+    },
     methods: {
         init() {
             console.log('init js')
             //recorder.action=this.nextStep()
         },
-        startCountDown(textToSpeak = '',  countDownText = '', countDown = 10) {
+        startCountDown(textToSpeak = '', countDownText = '', countDown = 10) {
             recorder.timerStop();
 
 
@@ -69,10 +79,10 @@ let app = new Vue({
                     this.nextStep(true);
                 }
             }, 1000);
-            speakWithDelay(textToSpeak,countDown * 1000)
+            speakWithDelay(textToSpeak, countDown * 1000)
         },//startCountDown
         nextStep(value) {
-            
+
             recorder.stopRecording();
             recorder.stopPlayLastRecord();
             //synth.cancel();
@@ -82,12 +92,12 @@ let app = new Vue({
             //alert(this.step);
             const steps = [
                 'start', 'mic-test',
-                'count-down-task', 'prepair1',
-                'count-down-task', 'task1',
-                'count-down-task', 'prepair2', 'task2',
-                'count-down-task', 'task21', 'task22', 'task23', 'task24', 'task25', 'task26', 'task2end',
-                'count-down-task', 'prepair3',
-                'count-down-task', 'task3',
+                'count-down1', 'prepair1',
+                'count-down2', 'task1',
+                'count-down1', 'prepair2', 'task2',
+                'count-down2', 'task21', 'task22', 'task23', 'task24', 'task25', 'task26', 'task2end',
+                'count-down1', 'prepair3',
+                'count-down2', 'task3',
                 'download'];
 
             switch (steps[this.step]) {
@@ -95,7 +105,7 @@ let app = new Vue({
                     //app.micStatus = MicStatus.READYTORECORD;                    
                     recorder.isShowRecorder = true;
                     recorder.getMic();
-                    this.content.main_text = `Нажмите кнопку записи <span class="fa-solid fa-record-vinyl icon-size red"></span> внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести.<br> Если вы уже делали это, можете сразу перейти к выполнению задания.`;
+                    this.content.mainText = `Нажмите кнопку записи <span class="fa-solid fa-record-vinyl icon-size red"></span> внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести.<br> Если вы уже делали это, можете сразу перейти к выполнению задания.`;
                     recorder.param = {
                         'record': true,
                         'directTimer': true,
@@ -111,31 +121,169 @@ let app = new Vue({
                     //mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести.<br> Если вы уже делали это, можете сразу перейти к выполнению задания.')
                     break;
 
-                case 'count-down-task'://Countdown
+                case 'count-down1'://Countdown
                     //this.startCountDown('', '', 'Be ready for the test', 5)
-                    this.startCountDown('Now we ready for start', 'Be ready for the test', 5);
+                    this.startCountDown('', 'Be ready for the test', 5);
                     break;
-                /*            case 'count-down-task'://Countdown
-                                count_down('', '', 'Be ready for the answer', 5)
-                                break;
-                
-                            case '':
-                                //read task and prepair
-                                this.Level(); //read_task(headers[1],mains.html[1],headers[1],90)
-                                break;
-                            case 'prepair1'://Prepair   
-                                //Выталкиваем запись проверки звука
-                                if (this.chunks.length > 0) this.chunks.pop();
-                                speak('Now we are ready to start. Task 1')
-                                setTimeout(() => {
-                                    app.head1 = Tasks.task1.header;
-                                    app.main_text = Tasks.task1.text;
-                                    app.isShowMain = true;
-                                    prepair('', '', '', 90)
-                                    //setTimeout(speak(Tasks.task1.introduction1, 0, () => { speak(Tasks.task1.introduction2, 0, () => { }) }), 3000);
-                                }, 3500);
-                                break;
-                  */
+                case 'count-down2'://Countdown
+                    //this.startCountDown('', '', 'Be ready for the test', 5)
+                    this.startCountDown('', 'Be ready for the answer', 5);
+                    break;
+                case 'prepair1'://Prepair   
+                    //Выталкиваем запись проверки звука
+                    if (recorder.chunks.length > 0) recorder.chunks.pop();
+
+                    speakWithDelay('Now we are ready to start. Task 1', 500, () => {
+                        app.content.head1 = currentTask.task1.header;
+                        app.shows.isShowCountdown = false;
+                        app.content.mainText = currentTask.task1.text;
+                        app.shows.isShowMain = true;
+                        recorder.isShowRecorder = true;
+                        recorder.micStatus = MicStatus.PREPARE;
+                        recorder.param.progressValue = 0;
+                        recorder.param.recTime = 0;
+                        recorder.param.maxRecTime = 90;
+                        recorder.param.directTimer = false;
+                        recorder.param.nextStepText = 'Готов';
+                        recorder.timerStart(recorder.param);
+                    });
+                    break;
+                case 'task1':
+                    speakWithDelay('Start speaking please', 500, () => {
+                        app.content.head1 = currentTask.task1.header;
+                        app.shows.isShowCountdown = false;
+                        app.content.mainText = currentTask.task1.text;
+                        app.shows.isShowMain = true;
+                        recorder.isShowRecorder = true;
+                        recorder.micStatus = MicStatus.AUTORECORDING;
+                        recorder.param.progressValue = 0;
+                        recorder.param.recTime = 0;
+                        recorder.param.maxRecTime = 90;
+                        recorder.param.directTimer = false;
+                        recorder.param.nextStepText = 'Завершить';
+                        //recorder.timerStart(recorder.param);
+                        recorder.startRecording();
+                    });
+                    break;
+                case 'prepair2':
+                    speakWithDelay('Task 2', 500, () => {
+                        app.shows.isShowCountdown = false;
+                        app.content.head1 = currentTask.task2.header;
+                        app.content.mainText = currentTask.task2.introduction2;//currentTask.task2.introduction1;
+                        app.content.text2 = '';// currentTask.task2.introduction2;
+                        app.shows.isShowMain = true;
+                        recorder.isShowRecorder = true;
+                        recorder.micStatus = MicStatus.PREPARE;
+                        recorder.param.progressValue = 0;
+                        recorder.param.recTime = 0;
+                        recorder.param.maxRecTime = 20;
+                        recorder.param.nextStepText = 'Готов';
+                        recorder.timerStart(recorder.param);
+                    });
+                    break;
+                case 'task2'://prepair for ask questions
+
+                    recorder.timerStop();
+                    app.shows.isShowHeader1 = true;
+                    app.content.head1 = 'Task 2. Electrionic assistant';
+                    app.shows.isShowRecorder = true;
+                    app.shows.isShowMain = true;
+                    app.shows.isShowCountdown = false;
+                    //recorder.progressValue = 0;
+                    recorder.param.maxRecTime = 40;
+
+                    app.shows.recTime = 0;
+                    app.shows.main_text = '';
+                    document.getElementById('recorderButtonNext').disabled = true;
+                    setTimeout(() => document.getElementById('recorderButtonNext').disabled = false, 15000);
+                    speakAllWithDelay(currentTask.task2.tapescripts, 500, () => {
+                        this.nextStep();
+                    });
+
+                    break;
+                case 'task21':
+                    app.content.head1 = 'Task 2. Electrionic assistant: question 1';
+                    app.shows.isShowMain = true;
+                    app.shows.isShowCountdown = false;
+                    recorder.isShowRecorder = true;
+                    recorder.micStatus = MicStatus.AUTORECORDING;
+                    recorder.param.recTime = 0;
+                    recorder.param.maxRecTime = 40;
+                    recorder.param.directTimer = false;
+                    recorder.param.nextStepText = 'Завершить';
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1, currentTask.task2.interviewer[0],
+                        () => {
+                            recorder.startRecording();
+                        });
+                    ;
+                    break;
+                case 'task22':
+                    app.content.head1 = 'Task 2. Electrionic assistant: question 2';
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1, currentTask.task2.interviewer[1],
+                        () => {
+                            recorder.startRecording();
+                        });
+
+                    break;
+                case 'task23':
+                    app.content.head1 = 'Task 2. Electrionic assistant: question 3';
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1, currentTask.task2.interviewer[2],
+                        () => {
+                            recorder.startRecording();
+                        });
+                    break;
+                case 'task24':
+                    app.content.head1 = 'Task 2. Electrionic assistant: question 4';
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1, currentTask.task2.interviewer[3],
+                        () => {
+                            recorder.startRecording();
+                        });
+                    break;
+                case 'task25':
+                    app.content.head1 = 'Task 2. Electrionic assistant: question 5';
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1, currentTask.task2.interviewer[4],
+                        () => {
+                            recorder.startRecording();
+                        });
+
+                    break;
+                case 'task26':
+                    app.content.head1 = 'Task 2. Electrionic assistant: question 6';
+                    playSoundSayTextAndPlaySoundAgain(Sounds.sound1, currentTask.task2.interviewer[5],
+                        () => {
+                            recorder.startRecording();
+                        });
+
+                    break;
+                case 'task2end':
+                    app.content.head1 = 'Task 2. Electrionic assistant';
+                    speakAllWithDelay(['This is the end of the survey.', 'Thank you very much for your cooperation'], 500, () => {
+                        this.nextStep();
+                    });
+                    break;
+                case 'prepair3':
+                    app.shows.isShowCountdown = false;
+                    app.content.head1 = currentTask.task3.header;
+                    app.content.mainText = currentTask.task3.text;
+                    app.content.text2 = currentTask.task3.text2;
+                    app.shows.isShowMain = true;
+                    recorder.isShowRecorder = true;
+                    recorder.micStatus = MicStatus.PREPARE;
+                    recorder.param.progressValue = 0;
+                    recorder.param.recTime = 0;
+                    recorder.param.maxRecTime = 20;
+                    recorder.param.nextStepText = 'Готов';
+                    recorder.timerStart(recorder.param);
+
+                    break;
+                case 'task3':
+                    recorder.isShowRecorder = true;
+                    recorder.startRecording();
+                    break;
+
+
+
+
             }
         }
 
@@ -145,6 +293,7 @@ let app = new Vue({
 function start() {
     document.getElementById('bottomButton').style.display = 'none';
     app.nextStep(1);
+    //speakAllWithDelay(task1.task2.tapescripts,500);
 }
 
 console.log('script loaded');
