@@ -18,57 +18,53 @@ const MicReadyStatus = { NOTREADY: 0, READY: 1 }
 let recorder = new Vue({
     el: '#recorder',
     data: {
-        
-        progressValue: 0,              
-        recorder: {
-            recTime: 15,
-            micStatus: MicStatus.INVISIBLE,
-            micReadyStatus: MicReadyStatus.NOTREADY,
-            audio: null,
-            chunks: [],
-            info: 'Микрофон не готов',//log recorder        
-            mediaRecorder: null,
-            isShowTime: true,
-            timer: null,
-            isShowRecorder:false,
-            param: {
-                'record': false,
-                'directTimer': true,
-                'directProgress': true,
-                'maxRecTime': 10,
-                'next': false,
-                'needTimerStop': false,
-                nextStepText: 'К экзамену'
-            },
-            action:null//действие-функция
+
+        progressValue: 0,
+
+        recTime: 15,
+        micStatus: MicStatus.INVISIBLE,
+        micReadyStatus: MicReadyStatus.NOTREADY,
+        audio: null,
+        chunks: [],
+        info: 'Микрофон не готов',//log recorder        
+        mediaRecorder: null,
+        isShowTime: true,
+        timer: null,
+        isShowRecorder: false,
+        param: {
+            'record': false,
+            'directTimer': true,
+            'directProgress': true,
+            'maxRecTime': 10,
+            'next': false,
+            'needTimerStop': false,
+            nextStepText: 'К экзамену'
         }
-
-
-
+        //action: null//действие-функция
     },
     computed: {
         formatTime() {
-            return (this.recorder.recTime + "").toMMSS();
+            return (this.recTime + "").toMMSS();
         },
         currentIcon() {
-            switch (this.recorder.micStatus) {
+            switch (this.micStatus) {
                 case MicStatus.NOTREADY:
                     return 'fa-solid  fa-microphone-slash icon-size';
                 case MicStatus.READYTORECORD:
-                    if (this.recorder.mediaRecorder == null)
+                    if (this.mediaRecorder == null)
                         return 'fa-solid fa-record-vinyl icon-size red';
                     else
                         return 'fa-solid fa-record-vinyl icon-size red';
                 case MicStatus.READYTOPLAY:
                     return 'fa-solid fa-circle-play icon-size';
                 case MicStatus.RECORDING:
-                    if (this.recorder.mediaRecorder == null)
+                    if (this.mediaRecorder == null)
                         return 'fa-solid fa-circle-stop icon-size gray';
                     else
                         return 'fa-solid fa-circle-stop icon-size red';
 
                 case MicStatus.AUTORECORDING:
-                    if (this.recorder.mediaRecorder == null)
+                    if (this.mediaRecorder == null)
                         return 'fa-solid fa-circle-stop icon-size gray';
                     else
                         return 'fa-solid fa-circle-stop icon-size red';
@@ -78,7 +74,7 @@ let recorder = new Vue({
                 case MicStatus.PREPARE:
                     return 'fas fa-tasks icon-size'
                 case MicStatus.AUTORECORDING:
-                    if (this.recorder.mediaRecorder == null)
+                    if (this.mediaRecorder == null)
                         return 'fa-solid fa-microphone icon-size gray';
                     else
                         return 'fa-solid fa-microphone icon-size red';
@@ -89,7 +85,7 @@ let recorder = new Vue({
             }
         },
         micReadyIcon() {
-            switch (this.recorder.micReadyStatus) {
+            switch (this.micReadyStatus) {
                 case
                     MicReadyStatus.NOTREADY:
                     return 'fa-solid  fa-microphone icon-size red ';
@@ -102,38 +98,45 @@ let recorder = new Vue({
     },
     methods: {
         init() {
-            //let getMicButton = document.getElementById('get-mic');
-            //getMicButton.addEventListener('click', async () => this.getMic());
         },
 
         async getMic() {
-            
-            if (this.recorder.micReadyStatus == MicReadyStatus.READY) return;
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            this.recorder.mediaRecorder = new MediaRecorder(stream);
-            if (this.recorder.mediaRecorder == null) {
-                alert("Не могу получить доступ к микрофону");
-                return;
+
+            if (this.micReadyStatus == MicReadyStatus.READY) return;
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                this.mediaRecorder = new MediaRecorder(stream);
+                if (this.mediaRecorder == null) {
+
+                    return;
+                }
+                this.mediaRecorder.ondataavailable = (e) => {
+                    this.chunks.push(e.data);
+                    //this.recorder.chunks[app.step]=e.data;
+                    console.log('data available:' + this.chunks.length)
+                }
+                this.mediaRecorder.onstart = (e) => {
+                    console.log('Recording started');
+                }
+                this.mediaRecorder.onstop = (e) => {
+                    console.log('Recording stoped');
+                }
+                this.micReadyStatus = MicReadyStatus.READY;
+                this.micStatus = MicStatus.READYTORECORD;
+                this.info = "Микрофон готов";
             }
-            this.recorder.mediaRecorder.ondataavailable = (e) => {
-                this.recorder.chunks.push(e.data);
-                console.log('data available:' + this.recorder.chunks.length)
+            catch {
+                alert('Не могу получить доступ к микрофону. Запись не ведется');
+                this.micStatus = MicStatus.INVISIBLE;
+                this.micReadyStatus = MicReadyStatus.NOTREADY;
+
             }
-            this.recorder.mediaRecorder.onstart = (e) => {
-                console.log('Recording started');
-            }
-            this.recorder.mediaRecorder.onstop = (e) => {
-                console.log('Recording stoped');
-            }
-            this.recorder.micReadyStatus = MicReadyStatus.READY;
-            this.recorder.micStatus=MicStatus.READYTORECORD;
-            this.recorder.info = "Микрофон готов";
             //this.nextStep();
 
         },
         toggleIcon() {
-            console.log(this.recorder.micStatus)
-            switch (this.recorder.micStatus) {
+            //console.log(this.micStatus)
+            switch (this.micStatus) {
                 case MicStatus.NOTREADY:
                     this.getMic();
                     break;
@@ -150,39 +153,43 @@ let recorder = new Vue({
                     this.stopPlayLastRecord();
                     break;
             }
-            console.log(this.recorder.micStatus)
+            //console.log(this.micStatus)
         },
         startRecording() {
             //if (mediaRecorder && mediaRecorder.state === 'inactive') 
 
-            if (this.recorder.mediaRecorder == null) {
+            if (this.mediaRecorder == null) {
                 alert("Нет доступа к микрофону. Запись не ведется");
                 return;
             }
-            if (this.recorder.micStatus != MicStatus.AUTORECORDING)
-                this.recorder.micStatus = MicStatus.RECORDING;
+            if (this.micStatus != MicStatus.AUTORECORDING)
+                this.micStatus = MicStatus.RECORDING;
             try {
-                this.recorder.mediaRecorder.start();
-                this.timerStart(this.recorder.param);
+                this.mediaRecorder.start();
+                this.timerStart(this.param);
             }
             catch (err) {
-                this.recorder.micReadyIcon = MicReadyStatus.NOTREADY;
+                this.micReadyIcon = MicReadyStatus.NOTREADY;
                 console.log(err);
                 //console.log(mediaRecorder);
+                this.micReadyStatus = MicReadyStatus.NOTREADY;
                 console.log('Нет доступа к микрофону. Запись не ведется');
                 this.info = 'Нет доступа к микрофону. Запись не ведется';
+                if (confirm('Нет доступа к микрофону. Запросить доступ?')) {
+                    this.getMic();
+                }
             }
 
         },
         stopRecording(needTimerStop = true) {
-            if (this.recorder.mediaRecorder == null) return;
-            if (this.recorder.mediaRecorder.state === 'recording') {
+            if (this.mediaRecorder == null) return;
+            if (this.mediaRecorder.state === 'recording') {
 
-                this.recorder.mediaRecorder.stop();
-                this.recorder.progressValue = 0;
-                if (this.recorder.micStatus != MicStatus.AUTORECORDING)
-                    this.recorder.micStatus = MicStatus.READYTOPLAY;
-                if (needTimerStop) this.timerStop(this.recorder.timer);
+                this.mediaRecorder.stop();
+                this.progressValue = 0;
+                if (this.micStatus != MicStatus.AUTORECORDING)
+                    this.micStatus = MicStatus.READYTOPLAY;
+                if (needTimerStop) this.timerStop(this.timer);
 
             }
             else {
@@ -190,30 +197,46 @@ let recorder = new Vue({
             }
         },
         playLastRecord() {
-            if (this.recorder.chunks != null && this.recorder.chunks.at(-1) != null) {
-                const blob = new Blob(this.recorder.chunks, { type: this.recorder.chunks.at(-1).type });
-                const audioURL = URL.createObjectURL(blob);
-                this.recorder.audio = new Audio(audioURL);
-                this.recorder.audio.play();
-                this.recorder.progressValue = 0;
-                this.recorder.timer = this.timerStart(this.recorder.param);
-                this.recorder.micStatus = MicStatus.PLAY;
-                this.recorder.audio.addEventListener('ended', () => {
-                    console.log('Аудиофайл завершил проигрывание');
-                    this.timerStop(this.recorder.timer);
-                    this.recorder.progressValue = 0;
-                    this.recorder.micStatus = MicStatus.READYTOPLAY;
-                });
+            // Проверяем, есть ли записанные фрагменты и есть ли последний фрагмент
+            if (this.chunks && this.chunks.length > 0) {
+                const lastChunk = this.chunks.at(-1); // Получаем последний фрагмент
+                const lastChunks = []
+                lastChunks.push(this.chunks.at(-1));
+
+                if (lastChunk) {
+                    const blob = new Blob(lastChunks, { type: lastChunk.type }); // Создаем Blob из всех фрагментов
+                    const audioURL = URL.createObjectURL(blob); // Создаем URL для Blob
+
+                    this.audio = new Audio(audioURL); // Создаем новый объект Audio
+                    this.audio.play() // Проигрываем аудио
+                        .then(() => {
+                            console.log('Аудиофайл начал проигрываться');
+                            this.progressValue = 0; // Сбрасываем значение прогресса
+                            this.timer = this.timerStart(this.param); // Запускаем таймер
+                            this.micStatus = MicStatus.PLAY; // Обновляем статус микрофона
+
+                            // Добавляем слушателя события 'ended' для отслеживания окончания воспроизведения
+                            this.audio.addEventListener('ended', () => {
+                                console.log('Аудиофайл завершил проигрывание');
+                                this.timerStop(this.timer); // Останавливаем таймер
+                                this.progressValue = 0; // Сбрасываем значение прогресса
+                                this.micStatus = MicStatus.READYTOPLAY; // Обновляем статус микрофона
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Ошибка при проигрывании аудио:', error);
+                        });
+                }
             } else {
-                console.log('No recorded audio to play');
+                console.log('No recorded audio to play'); // Выводим сообщение, если нет записанного аудио
             }
         },
         stopPlayLastRecord(needTimerStop = true) {
-            if (needTimerStop) this.timerStop(this.recorder.timer);
-            if (this.recorder.audio == null) return;
-            this.recorder.audio.pause();
-            this.recorder.audio.currentTime = 0;
-            this.recorder.micStatus = MicStatus.READYTOPLAY;
+            if (needTimerStop) this.timerStop(this.timer);
+            if (this.audio == null) return;
+            this.audio.pause();
+            this.audio.currentTime = 0;
+            this.micStatus = MicStatus.READYTOPLAY;
 
         },
         nextStep(next = true) {
@@ -242,43 +265,43 @@ let recorder = new Vue({
 
             let progressStep = 100 / param.maxRecTime;
             if (param.directProgress)
-                this.recorder.progressValue = 0;
+                this.progressValue = 0;
             else {
-                this.recorder.progressValue = 100;
+                this.progressValue = 100;
                 progressStep *= - 1;
             }
             let t = 0;
-            this.recorder.timer = setInterval(
+            this.timer = setInterval(
                 () => {
                     t++;
                     if (t <= param.maxRecTime) {
                         if (!param.directTimer)
-                            this.recorder.recTime = this.recorder.param.maxRecTime - t;
+                            this.recTime = this.param.maxRecTime - t;
                         else
-                            this.recorder.recTime = t;
-                        this.recorder.progressValue += progressStep;
-                        console.log(this.recorder.progressValue);
+                            this.recTime = t;
+                        this.progressValue += progressStep;
+                        //console.log(this.recorder.progressValue);
                     }
 
                     else {
-                        this.timerStop(this.recorder.timer);
-                        if (this.recorder.micStatus == MicStatus.PREPARE ||
-                            this.recorder.micStatus == MicStatus.AUTORECORDING) {
-                            this.recorder.micStatus = MicStatus.NOTREADY;
+                        this.timerStop(this.timer);
+                        if (this.micStatus == MicStatus.PREPARE ||
+                            this.micStatus == MicStatus.AUTORECORDING) {
+                            this.micStatus = MicStatus.NOTREADY;
                             if (param.next)
-                                this.nextStep();
+                                this.nextStep(false);//false остаемся на том же экране
                         }
                     }
                 }, 1000);
-            return this.recorder.timer;
+            return this.timer;
         },
 
         timerStop(timer) {
             clearInterval(timer);
-            this.recorder.recTime = 0;
+            this.recTime = 0;
             console.log("timer stop")
-            this.recorder.progressValue = 0;
-            switch (this.recorder.micStatus) {
+            this.progressValue = 0;
+            switch (this.micStatus) {
                 case MicStatus.PLAY:
                     this.stopPlayLastRecord(false);
                     break;
@@ -306,25 +329,14 @@ let recorder = new Vue({
 });
 
 
-
-
 navigator.permissions.query({ name: 'microphone' }).then((permissionStatus) => {
     permissionStatus.onchange = () => {
         console.log('Изменение доступа к микрофону');
+        recorder.micReadyStatus = MicReadyStatus.NOTREADY;
+        recorder.getMic();
         //this.mic_message = 'микрофон не доступен'
         // Дополнительные действия при изменении доступа к микрофону
     };
 });
 
 console.log('microphone loaded');
-
-
-
-
-
-
-
-
-
-
-

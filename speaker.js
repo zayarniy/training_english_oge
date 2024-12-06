@@ -18,7 +18,7 @@ function populateVoiceList() {
 
 setTimeout(() => {
 
-  populateVoiceList();
+  //populateVoiceList();
 }, 1000);
 
 if (synth.onvoiceschanged !== undefined) {
@@ -29,7 +29,7 @@ function log() {
   console.log("SpeechSynthesisUtterance.onend");
 }
 
-function speak(text, delay = 250, callback = log) {
+function speakWithDelay(text, delay = 250, callback = log) {
   if (synth.speaking) {
     console.error("speechSynthesis.speaking");
     return;
@@ -44,7 +44,7 @@ function speak(text, delay = 250, callback = log) {
     };
 
     utterThis.onerror = function (event) {
-      console.error("SpeechSynthesisUtterance.onerror");
+      console.error("SpeechSynthesisUtterance.onerror:" + event.error);
     };
     utterThis.voice = voices[0]
     //alert(voices)
@@ -55,6 +55,36 @@ function speak(text, delay = 250, callback = log) {
   }, delay);
 
 }
+
+function promiseSpeak(text, delay = 250, callback = log) {
+  return new Promise(resolve => {
+    if (synth.speaking) {
+      console.error("speechSynthesis.speaking");
+      return;
+    }
+
+    setTimeout(() => {
+      const utterThis = new SpeechSynthesisUtterance(text);
+
+      utterThis.onend = function (event) {
+        console.log('speak end');
+        callback();
+      };
+
+      utterThis.onerror = function (event) {
+        console.error("SpeechSynthesisUtterance.onerror:" + event.error);
+      };
+      utterThis.voice = voices[0]
+      //alert(voices)
+      utterThis.pitch = 1;
+      utterThis.rate = 1.02;
+      utterThis.lang = "en-GB";
+      synth.speak(utterThis);
+    }, delay);
+  })
+
+}
+
 
 
 function playSoundAndCallFunction(soundFile, callback, delay = 250) {
@@ -72,7 +102,7 @@ function playSoundSayTextAndPlaySoundAgain(soundFile, text, callback1) {
   const audio = new Audio(soundFile);
 
   audio.onended = function () {
-    speak(text, 0, function () {
+    speakWithDelay(text, 0, function () {
       const audioAgain = new Audio(soundFile);
 
       audioAgain.onended = function () {
@@ -87,7 +117,7 @@ function playSoundSayTextAndPlaySoundAgain(soundFile, text, callback1) {
 }
 
 console.log("speaker loaded");
-
+//speak('speaker loaded');
 
 ///////////////////////////////////////////////////////////////////
 /*
