@@ -31,6 +31,7 @@ function log() {
 
 function speakWithDelay(text, delay = 250, callback = log) {
   if (synth.speaking) {
+    synth.cancel();
     console.error("speechSynthesis.speaking");
     return;
   }
@@ -58,6 +59,7 @@ function speakWithDelay(text, delay = 250, callback = log) {
 
 function speakAllWithDelay(texts, delay = 250, callback = log) {
   if (synth.speaking) {
+    synth.cancel();
     console.error("speechSynthesis.speaking");
     return;
   }

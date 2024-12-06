@@ -88,7 +88,7 @@ let recorder = new Vue({
             switch (this.micReadyStatus) {
                 case
                     MicReadyStatus.NOTREADY:
-                    return 'fa-solid  fa-microphone icon-size red ';
+                    return 'fa-solid  fa-microphone-slash icon-size black ';
                 case MicReadyStatus.READY:
                     return 'fa-solid  fa-microphone black  icon-size';
 
@@ -159,13 +159,14 @@ let recorder = new Vue({
             //if (mediaRecorder && mediaRecorder.state === 'inactive') 
 
             if (this.mediaRecorder == null) {
-                alert("Нет доступа к микрофону. Запись не ведется");
-                return;
+                //alert("Нет доступа к микрофону. Запись не ведется");
+                console.log("Нет доступа к микрофону. Запись не ведется")
+                //return;
             }
             if (this.micStatus != MicStatus.AUTORECORDING)
                 this.micStatus = MicStatus.RECORDING;
             try {
-                this.mediaRecorder.start();
+                if (this.mediaRecorder != null) this.mediaRecorder.start();
                 this.timerStart(this.param);
             }
             catch (err) {
@@ -263,8 +264,8 @@ let recorder = new Vue({
 
         timerStart(param) {
 
-            let progressStep = 100 / param.maxRecTime;
-            if (param.directProgress)
+            let progressStep = 100 / this.param.maxRecTime;
+            if (this.param.directProgress)
                 this.progressValue = 0;
             else {
                 this.progressValue = 100;
@@ -274,8 +275,8 @@ let recorder = new Vue({
             this.timer = setInterval(
                 () => {
                     t++;
-                    if (t <= param.maxRecTime) {
-                        if (!param.directTimer)
+                    if (t <= this.param.maxRecTime) {
+                        if (!this.directTimer)
                             this.recTime = this.param.maxRecTime - t;
                         else
                             this.recTime = t;
@@ -296,8 +297,8 @@ let recorder = new Vue({
             return this.timer;
         },
 
-        timerStop(timer) {
-            clearInterval(timer);
+        timerStop() {
+            clearInterval(this.timer);
             this.recTime = 0;
             console.log("timer stop")
             this.progressValue = 0;
