@@ -41,6 +41,11 @@ let recorder = new Vue({
             nextStepText: 'К экзамену'
         }
         //action: null//действие-функция
+    },    
+    mounted()
+    {
+        //console.log('mounted');
+        this.micStatus=MicStatus.INVISIBLE;
     },
     computed: {
         formatTime() {
@@ -51,6 +56,7 @@ let recorder = new Vue({
                 case MicStatus.NOTREADY:
                     return 'fa-solid  fa-microphone-slash icon-size';
                 case MicStatus.READYTORECORD:
+                    console.log('CurrentIcon:ready to record');
                     if (this.mediaRecorder == null)
                         return 'fa-solid fa-record-vinyl icon-size red';
                     else
@@ -79,6 +85,7 @@ let recorder = new Vue({
                     else
                         return 'fa-solid fa-microphone icon-size red';
                 case MicStatus.INVISIBLE:
+                    console.log('CurrentIcon: Invisible');
                     return 'fa-solid fa-record-vinyl icon-size red invisible-icon';
 
 
@@ -123,6 +130,7 @@ let recorder = new Vue({
                 }
                 this.micReadyStatus = MicReadyStatus.READY;
                 this.micStatus = MicStatus.READYTORECORD;
+                console.log("Микрофон готов");
                 this.info = "Микрофон готов";
             }
             catch {
@@ -135,7 +143,7 @@ let recorder = new Vue({
 
         },
         toggleIcon() {
-            //console.log(this.micStatus)
+            console.log('toggleIcon:'+this.micStatus)
             switch (this.micStatus) {
                 case MicStatus.NOTREADY:
                     this.getMic();
@@ -241,25 +249,7 @@ let recorder = new Vue({
 
         },
         nextStep(next = true) {
-            //if (taction) action();
             if (next) app.nextStep(); //this.action();// this.step++;
-            // switch (this.step) {
-            //     case 0:
-            //         this.recorder.param = {
-            //             'record': true,
-            //             'directTimer': true,
-            //             'directProgress': true,
-            //             'maxRecTime': 5,
-            //             'next': true,
-            //             'needTimerStop': true,
-            //             'nextStepText': 'К экзамену',
-            //             timer: null
-            //         }
-            //         this.recorder.isShowTime = true;
-            //         this.recorder.micStatus = MicStatus.READYTORECORD;
-
-            // }
-            // console.log("Next step");
         },
 
         timerStart(param) {

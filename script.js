@@ -85,6 +85,7 @@ let app = new Vue({
 
             recorder.stopRecording();
             recorder.stopPlayLastRecord();
+
             //synth.cancel();
             //alert(typeof value);
             if (typeof value === 'number') this.step = value;
@@ -104,19 +105,20 @@ let app = new Vue({
                 case 'start':
                     recorder.isShowRecorder = false;
                     this.shows.isShowSelect = false;
-                    this.shows.isShowMain = true;    
-                    document.getElementById('bottomDiv').style.display='block';
+                    this.shows.isShowMain = true;
+                    document.getElementById('bottomDiv').style.display = 'block';
                     break;
                 case 'mic-test'://Mic test
                     //app.micStatus = MicStatus.READYTORECORD;                    
-                    recorder.isShowRecorder = true;
+
                     recorder.getMic();
+                    recorder.isShowRecorder = true;
                     this.content.mainText = `Нажмите кнопку записи <span class="fa-solid fa-record-vinyl icon-size red"></span> внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести.<br> Если вы уже делали это, можете сразу перейти к выполнению задания.`;
                     this.shows.isShowMain = true;
                     this.shows.isShowHeader1 = true;
                     this.shows.isShowAudioContainer = false;
                     this.content.head1 = 'Внимание';
-                    app.content.text2='';
+                    app.content.text2 = '';
                     recorder.chunks = [];
                     recorder.param = {
                         'record': true,
@@ -129,7 +131,7 @@ let app = new Vue({
                         timer: null
                     }
                     recorder.isShowTime = true;
-                    recorder.micStatus = MicStatus.READYTORECORD;
+                    //recorder.micStatus = MicStatus.READYTORECORD;
                     //mic_test('Внимание', 'Нажмите кнопку записи внизу, произнесите несколько слов, остановите запись, затем попробуйте воспроизвести.<br> Если вы уже делали это, можете сразу перейти к выполнению задания.')
                     break;
 
@@ -330,8 +332,11 @@ let app = new Vue({
                     app.shows.isShowAudioContainer = true;
 
                     document.getElementById('bottomDiv').style.display = 'block';
-                    document.getElementById('bottomButton').innerHTML = 'В начало';
-                    setTimeout(()=>audioContainerSet('audioContainer', recorder.chunks),1000);
+                    document.getElementById('bottomButton').innerHTML = 'С начала';
+                    document.getElementById('bottomButton').addEventListener('click', () => {
+                        window.location.reload();
+                    });
+                    setTimeout(() => audioContainerSet('audioContainer', recorder.chunks), 1000);
 
                     break;
 
@@ -419,10 +424,10 @@ function stopAllAudio() {
 
 console.log('script loaded');
 
-let currentTask=null;
+let currentTask = null;
 
 function variant(n) {
-    currentTask = allTasks[n-1]
+    currentTask = allTasks[n - 1]
     app.taskFilename = currentTask.materials;
     app.nextStep(0);
 }
