@@ -431,3 +431,24 @@ function variant(n) {
     app.taskFilename = currentTask.materials;
     app.nextStep(0);
 }
+
+let lcst = null;
+let logoClickCounter=0;
+function logoClick() {
+    if (logoClickCounter > 4) {
+        logoClick = 0;
+        clearTimeout(lcst)
+        showMaterials();
+    }
+    logoClickCounter++;
+    if (lcst == null)
+        lcst = setTimeout(() => {
+            logoClickCounter = 0;
+            clearTimeout(lcst)
+        }, 3000);
+
+}
+
+function showMaterials() {
+    window.location.href = 'tasks/ОГЭ Тренажер 12 вариантов.pdf';
+}

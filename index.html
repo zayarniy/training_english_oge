@@ -46,15 +46,41 @@
       </header>
       <!-------------                    -->
       <div v-show="shows.isShowSelect" class="row text-center">
-        <div class="col">
-          <ul>
-            <li><button class="btn btn-primary" onclick="variant(1)">Вариант 1</button></li>
+        <div class="col-6">
+          <ul style="list-style: none;">
+            <li><button class="btn btn-primary mt-1" onclick="variant(1)">Вариант 1</button></li>
             <li></li>
-            <li><button class="btn btn-primary" onclick="variant(2)">Вариант 2</button></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(2)">Вариант 2</button></li>
             <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(3)">Вариант 3</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(4)">Вариант 4</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(5)">Вариант 5</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(6)">Вариант 6</button></li>
+
 
           </ul>
         </div>
+        <div class="col-6">
+          <ul style="list-style: none;">
+            <li><button class="btn btn-primary mt-1" onclick="variant(7)" disabled>Вариант 7</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(8)" disabled>Вариант 8</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(9)" disabled>Вариант 9</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(10)" disabled>Вариант 10</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(11)" disabled>Вариант 11</button></li>
+            <li></li>
+            <li><button class="btn btn-primary mt-1" onclick="variant(12)" disabled>Вариант 12</button></li>
+
+
+          </ul>
+        </div>
+
       </div>
       <!--Main-->
       <div v-if="shows.isShowMain">
