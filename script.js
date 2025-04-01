@@ -1,5 +1,14 @@
 'use strict'
 
+const steps = [
+    'start', 'mic-test',
+    'count-down1', 'prepair1',
+    'count-down2', 'task1',
+    'count-down1', 'prepair2', 'task2',
+    'count-down2', 'task21', 'task22', 'task23', 'task24', 'task25', 'task26', 'task2end',
+    'count-down1', 'prepair3',
+    'count-down2', 'task3',
+    'download'];
 let Sounds = {
     sound1: 'sounds/sound01.mp3',
 }
@@ -56,6 +65,7 @@ let app = new Vue({
             //recorder.action=this.nextStep()
         },
         startCountDown(textToSpeak = '', countDownText = '', countDown = 10) {
+            console.log('startCountDown');
             recorder.timerStop();
 
 
@@ -79,7 +89,7 @@ let app = new Vue({
                     this.nextStep(true);
                 }
             }, 1000);
-            speakWithDelay(textToSpeak, countDown * 1000)
+            //speakWithDelay(textToSpeak, countDown * 1000+100)
         },//startCountDown
         nextStep(value) {
 
@@ -91,15 +101,6 @@ let app = new Vue({
             if (typeof value === 'number') this.step = value;
             else this.step++;
             //alert(this.step);
-            const steps = [
-                'start', 'mic-test',
-                'count-down1', 'prepair1',
-                'count-down2', 'task1',
-                'count-down1', 'prepair2', 'task2',
-                'count-down2', 'task21', 'task22', 'task23', 'task24', 'task25', 'task26', 'task2end',
-                'count-down1', 'prepair3',
-                'count-down2', 'task3',
-                'download'];
 
             switch (steps[this.step]) {
                 case 'start':
@@ -147,7 +148,7 @@ let app = new Vue({
                     //Выталкиваем запись проверки звука
                     if (recorder.chunks.length > 0) recorder.chunks.pop();
 
-                    speakWithDelay('Now we are ready to start. Task 1', 500, () => {
+                    speakWithDelay('Now we are ready to start. Task 1.', 3000, () => {
                         app.content.head1 = currentTask.task1.header;
                         app.shows.isShowCountdown = false;
                         app.content.mainText = currentTask.task1.text;
@@ -164,7 +165,7 @@ let app = new Vue({
                     });
                     break;
                 case 'task1':
-                    speakWithDelay('Start speaking please', 500, () => {
+                    speakWithDelay('Start speaking please', 3000, () => {
                         app.content.head1 = currentTask.task1.header;
                         app.shows.isShowCountdown = false;
                         app.content.mainText = currentTask.task1.text;
@@ -181,7 +182,7 @@ let app = new Vue({
                     });
                     break;
                 case 'prepair2':
-                    speakWithDelay('Task 2', 500, () => {
+                    speakWithDelay('Task 2', 3000, () => {
                         app.shows.isShowCountdown = false;
                         app.content.head1 = currentTask.task2.header;
                         app.content.mainText = currentTask.task2.introduction2;//currentTask.task2.introduction1;

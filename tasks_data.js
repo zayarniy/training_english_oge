@@ -251,6 +251,266 @@ let task6 =
   materials: tempText.materials
 }
 
+let task7 =
+{
+  description: `Вариант 7. Media `,
+  task1:
+  {
 
+    header: tempText.headerTask1,
+    text: `Media is a way we receive news, ideas, and entertainment. It includes newspapers, television, radio, and online platforms. Media helps people stay informed about local and global events. On July 20, 1969, millions of people around the world watched the first moon landing live on television. It was a historic moment shared through media. In November 1989, news reports showed the fall of the Berlin Wall, helping people understand its importance. Today, many people read news online or watch videos. If someone spends 3 hours a day using media, that adds up to over 1,000 hours a year! Media is everywhere—in our homes, schools, and even on our phones. It is important to use media wisely. Reading different sources and thinking carefully about what we see helps us understand the world better. Media is a powerful tool that can educate, connect, and inspire people across the globe.`
+  },
+  task2:
+  {
+    header: tempText.headerTask2,
+    header2: tempText.headerTask22,
+    tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'We kindly ask you to take part in our survey.',
+      'We need to find out how people feel about social media.',
+      'Please answer six questions.',
+      'The survey is anonymous – you don’t have to give your name.',
+      'So, let’s get started.'],
+    interviewer: ['Electronic assistant: How often do you use social media?', 
+    'Electronic assistant: What do you usually do on social media?',
+    'Electronic assistant: How do you protect your privacy when using social media?',
+    'Electronic assistant: Do you follow any educational or informative pages? Why or why not?',
+    'Electronic assistant: In your opinion, what is the biggest benefit of social media today?',
+    'Electronic assistant: Do you think social media affects the way people communicate in real life? How?',
+    'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+  },
+  task3:
+  {
+    header: 'Task 3. You are going to give a talk about news. You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences).',
+    text: `Remember to say:<br> 
+• what sources of news you know; <br>
+• if you trust the news you read or watch, and why;<br>
+• whether you think it’s important for young people to follow the news, and why; <br>
+• what your attitude to discussing news with others is.<br>`
+,
+    text2: tempText.task3Text2
+  },
+  materials: tempText.materials
+}
+
+
+let task8 =
+{
+  description: `Вариант 8. Gadgets`,
+  task1:
+  {
+
+    header: tempText.headerTask1,
+    text: `Gadgets are electronic tools that make life easier or more fun. Some common gadgets include smartphones, tablets, headphones, smartwatches, and e-readers. These devices are used for communication, learning, work, and entertainment. The first mobile phone call was made on April 3, 1973, by Martin Cooper. Since then, gadgets have changed a lot. In 2007, the first iPhone was released, and it quickly became a popular device around the world. Many people use gadgets every day. If someone spends 4 hours a day using gadgets, that’s over 1,400 hours a year! While gadgets are useful, it’s important to take breaks and rest your eyes. Gadgets help with learning, too. Students can use tablets to read books, watch science videos, or practice math online. Some schools even give students digital devices. Gadgets are a big part of modern life. When used responsibly, they can enhance how we live and learn.`
+  },
+  task2:
+  {
+    header: tempText.headerTask2,
+    header2: tempText.headerTask22,
+    tapescripts: ['Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'We kindly ask you to take part in our survey.',
+      'We need to find out how people feel about using gadgets.',
+      'Please answer six questions.',
+      'The survey is anonymous – you don’t have to give your name.',
+      'So, let’s get started.'],
+    interviewer: [
+    'Electronic assistant: Do you think people are too dependent on gadgets today? Why or why not?', 
+    'Electronic assistant: Have you ever had problems because a gadget stopped working? What happened?',
+    'Electronic assistant: What gadget do you find the most useful, and why?',
+    'Electronic assistant: Do you think children should have access to gadgets? At what age?',
+    'Electronic assistant: Is it difficult for you to take a break from gadgets? Why?',
+    'Electronic assistant: In your opinion, how will gadgets change in the future?',
+    'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+  },
+  task3:
+  {
+    header: 'Task 3. You are going to give a talk about gadgets. You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). ',
+    text: `Remember to say:<br> 
+• what gadgets you use most often and why;<br>
+• how gadgets help people in their daily lives;<br>
+• whether people rely too much on gadgets nowadays, and why;<br>
+• what your attitude to using gadgets at school is.`
+,
+    text2: tempText.task3Text2
+  },
+  materials: tempText.materials
+}
+
+let task9 =
+{
+  description: `Вариант 9. Sports`,
+  task1:
+  {
+
+    header: tempText.headerTask1,
+    text: `Sports are a great way to stay healthy, active, and strong. They help improve your fitness, boost your mood, and reduce stress. Playing sports also supports better sleep and stronger concentration in school. Doctors recommend at least 60 minutes of physical activity every day for children and teenagers. That adds up to 420 minutes a week, or 1,800 minutes a month! Even short sessions of running, swimming, or playing football can make a big difference. Sports also help build muscles, improve balance, and make your heart stronger. People who play sports regularly have more energy and feel more confident. Team sports like basketball or volleyball teach cooperation and discipline, while individual sports like tennis or cycling improve focus and self-control. You don’t have to be the best—what matters is that you move. When you stay active, your body and mind both become healthier and happier.`
+  },
+  task2:
+  {
+    header: tempText.headerTask2,
+    header2: tempText.headerTask22,
+    tapescripts: ['Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'We kindly ask you to take part in our survey.',
+      'We need to find out how people feel about extreme sports.',
+      'Please answer six questions.',
+      'The survey is anonymous – you don’t have to give your name.',
+      'So, let’s get started.'],
+    interviewer: [
+    'Electronic assistant: Do you agree that extreme sports are too dangerous? Why?', 
+    'Electronic assistant: What are some examples of extreme sports do you know?',
+    'Electronic assistant: Do you think doing extreme sports requires any special traits of character? Which ones?',
+'Electronic assistant: What do you think makes extreme sports attractive to some people?',
+'Electronic assistant: What safety measures do you think are essential for someone participating in extreme sports?',
+'Electronic assistant: Should extreme sports be banned for safety reasons? Why or why not?',
+'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+]
+  },
+  task3:
+  {
+    header: 'Task 3. You are going to give a talk about sports. You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). ',
+    text: `Remember to say:<br> 
+• what kinds of sports you enjoy watching or doing, and why;<br>
+• how often you do sports or physical activities;<br>
+• whether it’s better to do sports alone or with others, and why;<br>
+• what your attitude to sports competitions at school is.<br>`
+,
+    text2: tempText.task3Text2
+  },
+  materials: tempText.materials
+}
+
+
+let task10 =
+{
+  description: `Вариант 10. Sports`,
+  task1:
+  {
+
+    header: tempText.headerTask1,
+    text: `Education is one of the most valuable things in life. It helps people become more intelligent, confident, and independent. Through education, we learn how to read, write, solve problems, and think critically. A good education teaches more than just facts. It helps people understand the world, respect others, and make smart decisions. It also builds important life skills like communication, creativity, and discipline. Education opens doors to better jobs, new ideas, and exciting opportunities. It gives people the power to improve their lives and help their communities. It also teaches us to be curious, ask questions, and never stop learning. Whether you learn in a classroom, at home, or through books and experiences, education helps you grow as a person. It shapes your future and gives you the tools to reach your goals. Education is not just important—it’s the foundation for a better life.`
+  },
+  task2:
+  {
+    header: tempText.headerTask2,
+    header2: tempText.headerTask22,
+    tapescripts: [
+      'Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'We kindly ask you to take part in our survey.',
+      'We need to find out how people feel about education.',
+      'Please answer six questions.',
+      'The survey is anonymous – you don’t have to give your name.',
+      'So, let’s get started.'],
+    interviewer: [
+      'Electronic assistant: When do you usually feel most motivated to study?',
+      'Electronic assistant: Where do you prefer to study—at home, in a library, or somewhere else? Why?',      
+      'Electronic assistant: Are school uniforms a good idea in your opinion?',       
+      'Electronic assistant: Should students be allowed to use smartphones during lessons?',      
+      'Electronic assistant: Do you agree that education plays a key role in a person’s life? Why?',      
+      'Electronic assistant: What skills do you think schools should teach more of nowadays?',      
+      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+      
+]
+  },
+  task3:
+  {
+    header: 'Task 3. You are going to give a talk about education. You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences).',
+    text: `Remember to say:<br> 
+•	what subjects you enjoy studying at school, and why;<br>
+•	what helps you study more effectively;<br>
+•	whether it is better to study alone or with others, and why;<br>
+•	what your attitude to online learning is.`,
+    text2: tempText.task3Text2
+  },
+  materials: tempText.materials
+}
+
+
+let task11 =
+{
+  description: `Вариант 11. Career`,
+  task1:
+  {
+
+    header: tempText.headerTask1,
+    text: `A career is more than just a job—it’s the path you choose for your working life. People build their careers based on their interests, skills, and goals. Some choose to become architects, engineers, or pharmacists. A good career can offer many benefits. Some jobs come with perks like flexible hours, free lunches, or health insurance. Others offer bonuses for good performance or promotions to higher positions with more responsibility and better pay. However, not every career path is easy. Sometimes, companies reduce staff, and a person may be made redundant. It can be disappointing, but it’s also a chance to learn new skills or change direction. Choosing the right career takes time and effort. When you follow your passion, work hard, and stay motivated, your career can be exciting, rewarding, and full of opportunities.`
+  },
+  task2:
+  {
+    header: tempText.headerTask2,
+    header2: tempText.headerTask22,
+    tapescripts: [
+      'Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'We kindly ask you to take part in our survey.',
+      'We need to find out how people feel about career choice.',
+      'Please answer six questions.',
+      'The survey is anonymous – you don’t have to give your name.',
+      'So, let’s get started.'],
+    interviewer: [
+      'Electronic assistant: Do you think it is important to choose a career that you enjoy? Why or why not?',
+      'Electronic assistant: What are some popular career choices among young people today?',      
+      'Electronic assistant: Who or what influences people the most when choosing a career path?',      
+      'Electronic assistant: How can schools help students prepare for future careers?',      
+      'Electronic assistant: Do you agree that job satisfaction is more important than a high salary? Why?',      
+      'Electronic assistant: Are part-time jobs useful for teenagers? Why or why not?',      
+      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'          
+]
+  },
+  task3:
+  {
+    header: 'Task 3. You are going to give a talk about career path. You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences). ',
+    text: `Remember to say:<br> 
+•	what career you would like to choose in the future, and why;<br>
+•	what skills or qualities are important for that career;<br>
+•	if you would like to follow in your parents’ footsteps or choose a different path, and why;<br>
+•	what your attitude to changing careers later in life is.<br>
+`,
+    text2: tempText.task3Text2
+  },
+  materials: tempText.materials
+}
+
+
+let task12 =
+{
+  description: `Вариант 12. Leisure activities`,
+  task1:
+  {
+
+    header: tempText.headerTask1,
+    text: `Hobbies and leisure activities are a great way to enjoy your free time. People often spend 1 to 3 hours a day on hobbies, which adds up to over 700 hours a year! That time can help improve your mood, reduce stress, and boost creativity. Some popular hobbies include photography, painting, cooking, and learning new languages. Others enjoy more active pastimes like swimming, cycling, or dancing. These activities don’t just pass time—they also teach useful skills and help improve concentration and patience. Group hobbies like playing in a band or joining a sports team help people make friends and feel more connected. Even solo hobbies, like reading or gardening, bring peace and satisfaction. It’s important to choose hobbies that make you feel happy and motivated. When you enjoy what you do in your free time, it makes life more balanced, interesting, and full of positive energy.`
+  },
+  task2:
+  {
+    header: tempText.headerTask2,
+    header2: tempText.headerTask22,
+    tapescripts: [
+      'Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'We kindly ask you to take part in our survey.',
+      'We need to find out how people feel about leisure activities.',
+      'Please answer six questions.',
+      'The survey is anonymous – you don’t have to give your name.',
+      'So, let’s get started.'],
+    interviewer: [
+      'Electronic assistant: Are hobbies a good way to reduce stress? Why?',
+      'Electronic assistant: How do you usually spend your weekends?',      
+      'Electronic assistant: Do you prefer indoor or outdoor leisure activities? Why?',       
+      'Electronic assistant: How has technology changed the way people spend their free time?',      
+      'Electronic assistant: Do you think leisure activities are important for mental health? Why?',      
+      'Electronic assistant: Does the place where you live affect your choice of leisure activities?',      
+      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+      
+]
+  },
+  task3:
+  {
+    header: 'Task 3. You are going to give a talk about hobbies. You will have to start in 1.5 minutes and speak for not more than 2 minutes (10–12 sentences).',
+    text: `Remember to say:<br> 
+•	why having a hobby is important;<br>
+•	how hobbies can help reduce stress or improve mental health;<br>
+•	whether expensive hobbies are better or more enjoyable than simple ones;<br>
+•	what your attitude is to people who have no hobbies at all.`,
+    text2: tempText.task3Text2
+  },
+  materials: tempText.materials
+}
 //let currentTask=task1;
-allTasks = [task1, task2,task3,task4,task5,task6]
+allTasks = [task1, task2,task3,task4,task5,task6,task7,task8, task9,task10,task11,task12]
