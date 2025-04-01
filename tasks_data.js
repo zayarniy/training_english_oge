@@ -49,16 +49,16 @@ let task1 =
   {
     header: 'Task 2. You are going to take part in a telephone survey. You have to answer six questions. Give full answers to the questions. Remember that you have 40 seconds to answer each question. ',
     header2: 'Tapescript for Task 2 ',
-    tapescripts: ['Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+    tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.','We need to find out how people feel about school. Please answer six questions.',
     'The survey is anonymous – you don’t have to give your name. So, let’s get started.'],
-    interviewer: ['Electronic assistant: How can you make new friends at school?', 
-      'Electronic assistant: How do you feel when someone is not nice to you in class?',
-      'Electronic assistant: What can you say to help a friend who’s just failed an exam?',
-      'Electronic assistant: Have you ever quarreled with your friends at school? Why?',
-      'Electronic assistant: Is it important to have friends at school? Why?',
-      'Electronic assistant: How do you keep in touch with your school friends when you are absent?',
-      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+    interviewer: ['How can you make new friends at school?', 
+      'How do you feel when someone is not nice to you in class?',
+      'What can you say to help a friend who’s just failed an exam?',
+      'Have you ever quarreled with your friends at school? Why?',
+      'Is it important to have friends at school? Why?',
+      'How do you keep in touch with your school friends when you are absent?',
+      'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
@@ -87,19 +87,19 @@ let task2 =
   {
     header: tempText.headerTask2,
     header2: tempText.headerTask22,
-    tapescripts: ['Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+    tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.',
       'We need to find out how people feel about living in cities or towns.',
       'Please answer six questions. ',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
-    interviewer: ['Electronic assistant: Where is your hometown located?', 
-      'Electronic assistant: How long have you been living in your city, town or village?',
-      'Electronic assistant: What is it famous for?',
-      'Electronic assistant: When was it founded?',
-      'Electronic assistant: What is your favourite place? Why?',
-      'Electronic assistant: What would you like to improve in your hometown to make it a better place to live?',
-      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+    interviewer: ['Where is your hometown located?', 
+      'How long have you been living in your city, town or village?',
+      'What is it famous for?',
+      'When was it founded?',
+      'What is your favourite place? Why?',
+      'What would you like to improve in your hometown to make it a better place to live?',
+      'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
@@ -133,7 +133,7 @@ let task3 =
     header2: tempText.headerTask22,
     tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company. We kindly ask you to take part in our survey.',
       'We need to find out how people feel about weather conditions in our region. Please answer six questions. The survey is anonymous – you don’t have to give your name. So, let’s get started'],
-    interviewer: ["Electronic assistant: What's the weather usually like in your hometown?", 'Electronic assistant: Does the weather affect your mood?', 'Electronic assistant: How do rainy days make you feel?', 'Electronic assistant: What’s your favourite season of the year? Why?', 'Electronic assistant: Do you prefer hot or cold weather? Why?', 'Electronic assistant: Have you experienced any extreme weather conditions?', 'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+    interviewer: ["What's the weather usually like in your hometown?", 'Does the weather affect your mood?', 'How do rainy days make you feel?', 'What’s your favourite season of the year? Why?', 'Do you prefer hot or cold weather? Why?', 'Have you experienced any extreme weather conditions?', 'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
@@ -165,11 +165,18 @@ let task4 =
     header2: tempText.text2,
     tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company. We kindly ask you to take part in our survey.',
       'We need to find out how people feel about weather conditions in our region. Please answer six questions. The survey is anonymous – you don’t have to give your name. So, let’s get started'],
-    interviewer: ["How much time a day do you spend with your family?", 'Is it important to build good relationships with teachers?', 'Do you have conflicts with peers? Why?', 'Do you have conflicts with peers? Why?', 'What is the main reason for conflicts in your opinion?', 'What can young people do to avoid conflicts with parents?', 'What would you recommend to your friends to improve the relationship with their classmates?']
+    interviewer: [
+      'How much time a day do you spend with your family?', 
+      'Is it important to build good relationships with teachers?', 
+      'Do you have conflicts with peers? Why?',        
+      'What is the main reason for conflicts in your opinion?', 
+      'What can young people do to avoid conflicts with parents?',       
+      'What would you recommend to your friends to improve the relationship with their classmates?',
+      'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
-    header: 'You are going to give a talk about family traditions. You will have to start in 1,5 minutes and speak for not more than 2 minutes (10-12 sentences).',
+    header: 'Task 3. You are going to give a talk about family traditions. You will have to start in 1,5 minutes and speak for not more than 2 minutes (10-12 sentences).',
     text: `Remember to say:<br> 
     -	what family traditions you have in your family;<br>
     -	who you get along better in your family;<br>
@@ -197,14 +204,14 @@ let task5 =
     header2: tempText.text2,
     tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company. We kindly ask you to take part in our survey.',
       'We need to find out how people feel about maintaining a large house.','Please answer six questions.','The survey is anonymous – you don’t have to give your name.','So, let’s get started.'],
-    interviewer: ['Electronic assistant: Do you live in a house or a flat?','Electronic assistant: What do you think about sales and discounts? Are they helpful?','Electronic assistant: Have you ever made a shopping list before going to the store?',
-      'Electronic assistant: Do advertisements influence your shopping decisions? How?','Electronic assistant: What is the last present you bought for someone else?','Electronic assistant: How do you think shopping habits will change in the future?',
-      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+    interviewer: ['Do you live in a house or a flat?','What do you think about sales and discounts? Are they helpful?','Have you ever made a shopping list before going to the store?',
+      'Do advertisements influence your shopping decisions? How?','What is the last present you bought for someone else?','How do you think shopping habits will change in the future?',
+      'This is the end of the survey. Thank you very much for your cooperation.'
     ]
   },
   task3:
   {
-    header: 'You are going to give a talk about family traditions. You will have to start in 1,5 minutes and speak for not more than 2 minutes (10-12 sentences).',
+    header: 'Task 3. You are going to give a talk about family traditions. You will have to start in 1,5 minutes and speak for not more than 2 minutes (10-12 sentences).',
     text: `Remember to say:<br>         
     •	what household chores you usually do at home;<br>         
     •	whether you think it’s important to help your family with chores, and why;<br>         
@@ -230,13 +237,13 @@ let task6 =
     header2: tempText.headerTask22,
     tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company. We kindly ask you to take part in our survey.',
       'We need to find out how people feel about shopping.','Please answer six questions.','The survey is anonymous – you don’t have to give your name.','So, let’s get started.'],
-    interviewer: ['Electronic assistant: Do you prefer shopping alone or with someone else? Why?', 
-    'Electronic assistant: What do you think about sales and discounts? Are they helpful?',
-    'Electronic assistant: Have you ever made a shopping list before going to the store?',
-    'Electronic assistant: Do advertisements influence your shopping decisions? How?',
-    'Electronic assistant: What is the last present you bought for someone else?',
-    'Electronic assistant: How do you think shopping habits will change in the future?',
-    'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+    interviewer: ['Do you prefer shopping alone or with someone else? Why?', 
+    'What do you think about sales and discounts? Are they helpful?',
+    'Have you ever made a shopping list before going to the store?',
+    'Do advertisements influence your shopping decisions? How?',
+    'What is the last present you bought for someone else?',
+    'How do you think shopping habits will change in the future?',
+    'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
@@ -270,13 +277,13 @@ let task7 =
       'Please answer six questions.',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
-    interviewer: ['Electronic assistant: How often do you use social media?', 
-    'Electronic assistant: What do you usually do on social media?',
-    'Electronic assistant: How do you protect your privacy when using social media?',
-    'Electronic assistant: Do you follow any educational or informative pages? Why or why not?',
-    'Electronic assistant: In your opinion, what is the biggest benefit of social media today?',
-    'Electronic assistant: Do you think social media affects the way people communicate in real life? How?',
-    'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+    interviewer: ['How often do you use social media?', 
+    'What do you usually do on social media?',
+    'How do you protect your privacy when using social media?',
+    'Do you follow any educational or informative pages? Why or why not?',
+    'In your opinion, what is the biggest benefit of social media today?',
+    'Do you think social media affects the way people communicate in real life? How?',
+    'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
@@ -306,20 +313,20 @@ let task8 =
   {
     header: tempText.headerTask2,
     header2: tempText.headerTask22,
-    tapescripts: ['Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+    tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.',
       'We need to find out how people feel about using gadgets.',
       'Please answer six questions.',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
     interviewer: [
-    'Electronic assistant: Do you think people are too dependent on gadgets today? Why or why not?', 
-    'Electronic assistant: Have you ever had problems because a gadget stopped working? What happened?',
-    'Electronic assistant: What gadget do you find the most useful, and why?',
-    'Electronic assistant: Do you think children should have access to gadgets? At what age?',
-    'Electronic assistant: Is it difficult for you to take a break from gadgets? Why?',
-    'Electronic assistant: In your opinion, how will gadgets change in the future?',
-    'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.']
+    'Do you think people are too dependent on gadgets today? Why or why not?', 
+    'Have you ever had problems because a gadget stopped working? What happened?',
+    'What gadget do you find the most useful, and why?',
+    'Do you think children should have access to gadgets? At what age?',
+    'Is it difficult for you to take a break from gadgets? Why?',
+    'In your opinion, how will gadgets change in the future?',
+    'This is the end of the survey. Thank you very much for your cooperation.']
   },
   task3:
   {
@@ -348,20 +355,20 @@ let task9 =
   {
     header: tempText.headerTask2,
     header2: tempText.headerTask22,
-    tapescripts: ['Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+    tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.',
       'We need to find out how people feel about extreme sports.',
       'Please answer six questions.',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
     interviewer: [
-    'Electronic assistant: Do you agree that extreme sports are too dangerous? Why?', 
-    'Electronic assistant: What are some examples of extreme sports do you know?',
-    'Electronic assistant: Do you think doing extreme sports requires any special traits of character? Which ones?',
-'Electronic assistant: What do you think makes extreme sports attractive to some people?',
-'Electronic assistant: What safety measures do you think are essential for someone participating in extreme sports?',
-'Electronic assistant: Should extreme sports be banned for safety reasons? Why or why not?',
-'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+    'Do you agree that extreme sports are too dangerous? Why?', 
+    'What are some examples of extreme sports do you know?',
+    'Do you think doing extreme sports requires any special traits of character? Which ones?',
+'What do you think makes extreme sports attractive to some people?',
+'What safety measures do you think are essential for someone participating in extreme sports?',
+'Should extreme sports be banned for safety reasons? Why or why not?',
+'This is the end of the survey. Thank you very much for your cooperation.'
 ]
   },
   task3:
@@ -393,20 +400,20 @@ let task10 =
     header: tempText.headerTask2,
     header2: tempText.headerTask22,
     tapescripts: [
-      'Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.',
       'We need to find out how people feel about education.',
       'Please answer six questions.',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
     interviewer: [
-      'Electronic assistant: When do you usually feel most motivated to study?',
-      'Electronic assistant: Where do you prefer to study—at home, in a library, or somewhere else? Why?',      
-      'Electronic assistant: Are school uniforms a good idea in your opinion?',       
-      'Electronic assistant: Should students be allowed to use smartphones during lessons?',      
-      'Electronic assistant: Do you agree that education plays a key role in a person’s life? Why?',      
-      'Electronic assistant: What skills do you think schools should teach more of nowadays?',      
-      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+      'When do you usually feel most motivated to study?',
+      'Where do you prefer to study—at home, in a library, or somewhere else? Why?',      
+      'Are school uniforms a good idea in your opinion?',       
+      'Should students be allowed to use smartphones during lessons?',      
+      'Do you agree that education plays a key role in a person’s life? Why?',      
+      'What skills do you think schools should teach more of nowadays?',      
+      'This is the end of the survey. Thank you very much for your cooperation.'
       
 ]
   },
@@ -438,20 +445,20 @@ let task11 =
     header: tempText.headerTask2,
     header2: tempText.headerTask22,
     tapescripts: [
-      'Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.',
       'We need to find out how people feel about career choice.',
       'Please answer six questions.',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
     interviewer: [
-      'Electronic assistant: Do you think it is important to choose a career that you enjoy? Why or why not?',
-      'Electronic assistant: What are some popular career choices among young people today?',      
-      'Electronic assistant: Who or what influences people the most when choosing a career path?',      
-      'Electronic assistant: How can schools help students prepare for future careers?',      
-      'Electronic assistant: Do you agree that job satisfaction is more important than a high salary? Why?',      
-      'Electronic assistant: Are part-time jobs useful for teenagers? Why or why not?',      
-      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'          
+      'Do you think it is important to choose a career that you enjoy? Why or why not?',
+      'What are some popular career choices among young people today?',      
+      'Who or what influences people the most when choosing a career path?',      
+      'How can schools help students prepare for future careers?',      
+      'Do you agree that job satisfaction is more important than a high salary? Why?',      
+      'Are part-time jobs useful for teenagers? Why or why not?',      
+      'This is the end of the survey. Thank you very much for your cooperation.'          
 ]
   },
   task3:
@@ -483,20 +490,20 @@ let task12 =
     header: tempText.headerTask2,
     header2: tempText.headerTask22,
     tapescripts: [
-      'Electronic assistant: Hello! It’s the electronic assistant of the Independent Polling Company.',
+      'Hello! It’s the electronic assistant of the Independent Polling Company.',
       'We kindly ask you to take part in our survey.',
       'We need to find out how people feel about leisure activities.',
       'Please answer six questions.',
       'The survey is anonymous – you don’t have to give your name.',
       'So, let’s get started.'],
     interviewer: [
-      'Electronic assistant: Are hobbies a good way to reduce stress? Why?',
-      'Electronic assistant: How do you usually spend your weekends?',      
-      'Electronic assistant: Do you prefer indoor or outdoor leisure activities? Why?',       
-      'Electronic assistant: How has technology changed the way people spend their free time?',      
-      'Electronic assistant: Do you think leisure activities are important for mental health? Why?',      
-      'Electronic assistant: Does the place where you live affect your choice of leisure activities?',      
-      'Electronic assistant: This is the end of the survey. Thank you very much for your cooperation.'
+      'Are hobbies a good way to reduce stress? Why?',
+      'How do you usually spend your weekends?',      
+      'Do you prefer indoor or outdoor leisure activities? Why?',       
+      'How has technology changed the way people spend their free time?',      
+      'Do you think leisure activities are important for mental health? Why?',      
+      'Does the place where you live affect your choice of leisure activities?',      
+      'This is the end of the survey. Thank you very much for your cooperation.'
       
 ]
   },

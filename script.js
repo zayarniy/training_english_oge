@@ -174,7 +174,7 @@ let app = new Vue({
                         recorder.micStatus = MicStatus.AUTORECORDING;
                         recorder.param.progressValue = 0;
                         recorder.param.recTime = 0;
-                        recorder.param.maxRecTime = 90;
+                        recorder.param.maxRecTime = 120;
                         recorder.param.directTimer = false;
                         recorder.param.nextStepText = 'Завершить';
 
