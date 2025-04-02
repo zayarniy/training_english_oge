@@ -45,7 +45,13 @@
         </div>
       </header>
       <!-------------                    -->
-      <div v-show="shows.isShowSelect" class="row text-center">
+      <div v-show="shows.isShowSelect" >
+        <div class="row text-center">
+          <div class="col">
+            <h3>Тренажер работает в браузере <img src="images/Microsoft_Edge_logo_(2019).svg.png" style="width: 25px;">Microsoft Edge</h3>
+          </div>
+        </div>
+      <div class="row text-center">
         <div class="col-6">
           <ul style="list-style: none;">
             <li><button class="btn btn-primary mt-1" onclick="variant(1)">Вариант 1</button></li>
@@ -59,8 +65,6 @@
             <li><button class="btn btn-primary mt-1" onclick="variant(5)">Вариант 5</button></li>
             <li></li>
             <li><button class="btn btn-primary mt-1" onclick="variant(6)">Вариант 6</button></li>
-
-
           </ul>
         </div>
         <div class="col-6">
@@ -82,6 +86,7 @@
         </div>
 
       </div>
+    </div>
       <!--Main-->
       <div v-if="shows.isShowMain">
         <div v-if='shows.isShowMain' class="row">
