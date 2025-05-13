@@ -72,7 +72,7 @@ function initUtterance()
    utterThis = new SpeechSynthesisUtterance();
    utterThis.voice = voices[0];
    utterThis.pitch = 1;
-   utterThis.rate = 1.01;
+   utterThis.rate = 1;
    utterThis.lang = "en-GB";
    
    utterances.push(utterThis);//чтобы не удалил GarbageCollector

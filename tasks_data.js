@@ -164,7 +164,7 @@ let task4 =
     header: 'Task 2. Teenagers’ relationships with other people.',
     header2: tempText.text2,
     tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company. We kindly ask you to take part in our survey.',
-      'We need to find out how people feel about weather conditions in our region. Please answer six questions. The survey is anonymous – you don’t have to give your name. So, let’s get started'],
+      'We need to find out how people feel about family relationships. Please answer six questions. The survey is anonymous – you don’t have to give your name. So, let’s get started'],
     interviewer: [
       'How much time a day do you spend with your family?', 
       'Is it important to build good relationships with teachers?', 
@@ -180,7 +180,7 @@ let task4 =
     text: `Remember to say:<br> 
     -	what family traditions you have in your family;<br>
     -	who you get along better in your family;<br>
-    -	if your family traditions are extraverted or intraverted;<br>
+    -	if you have started a new tradition in your family;<br>
     -	if you would like your own family in future be different. How? Why?`,
     text2: "<strong>You have to talk continuously.</strong>"
   },
@@ -204,18 +204,22 @@ let task5 =
     header2: tempText.text2,
     tapescripts: ['Hello! It’s the electronic assistant of the Independent Polling Company. We kindly ask you to take part in our survey.',
       'We need to find out how people feel about maintaining a large house.','Please answer six questions.','The survey is anonymous – you don’t have to give your name.','So, let’s get started.'],
-    interviewer: ['Do you live in a house or a flat?','What do you think about sales and discounts? Are they helpful?','Have you ever made a shopping list before going to the store?',
-      'Do advertisements influence your shopping decisions? How?','What is the last present you bought for someone else?','How do you think shopping habits will change in the future?',
+    interviewer: ['Do you live in a house or a flat?',
+      'Have you ever done any gardening? What exactly did you do?',
+      `Do you think it's difficult to take care of a big house? Why or why not?`,
+      'What kind of help might people need when maintaining a large house?',
+      'Would you like to live in a house with a big garden in the future? Why or why not?',
+      'What kinds of chores can be done by robots in the future?',
       'This is the end of the survey. Thank you very much for your cooperation.'
     ]
   },
   task3:
   {
-    header: 'Task 3. You are going to give a talk about family traditions. You will have to start in 1,5 minutes and speak for not more than 2 minutes (10-12 sentences).',
+    header: 'Task 3. You are going to give a talk about household chores. You will have to start in 1,5 minutes and speak for not more than 2 minutes (10-12 sentences).',
     text: `Remember to say:<br>         
     •	what household chores you usually do at home;<br>         
     •	whether you think it’s important to help your family with chores, and why;<br>         
-    •	what chores are the easiest and what are the most difficult for you;<br>         
+    •	what chores are the easiest ones and what are the most difficult ones for you;<br>         
     •	what your attitude to doing chores is.`,
     text2: tempText.task3Text2
   },
@@ -241,7 +245,7 @@ let task6 =
     'What do you think about sales and discounts? Are they helpful?',
     'Have you ever made a shopping list before going to the store?',
     'Do advertisements influence your shopping decisions? How?',
-    'What is the last present you bought for someone else?',
+    'What was the last present you bought for someone else?',
     'How do you think shopping habits will change in the future?',
     'This is the end of the survey. Thank you very much for your cooperation.']
   },
@@ -363,7 +367,7 @@ let task9 =
       'So, let’s get started.'],
     interviewer: [
     'Do you agree that extreme sports are too dangerous? Why?', 
-    'What are some examples of extreme sports do you know?',
+    'What extreme sports do you know?',
     'Do you think doing extreme sports requires any special traits of character? Which ones?',
 'What do you think makes extreme sports attractive to some people?',
 'What safety measures do you think are essential for someone participating in extreme sports?',
@@ -467,7 +471,7 @@ let task11 =
     text: `Remember to say:<br> 
 •	what career you would like to choose in the future, and why;<br>
 •	what skills or qualities are important for that career;<br>
-•	if you would like to follow in your parents’ footsteps or choose a different path, and why;<br>
+•	if you would like to follow your parents’ footsteps or choose a different path, and why;<br>
 •	what your attitude to changing careers later in life is.<br>
 `,
     text2: tempText.task3Text2
